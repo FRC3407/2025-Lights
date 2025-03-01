@@ -2,7 +2,7 @@ import board
 import pixelstrip
 from colors import *
 
-class FishAnimation(pixelstrip.Animation):
+class LittleFishAnimation(pixelstrip.Animation):
     """
     Write a description of this Animtion here.
     """
@@ -142,7 +142,7 @@ class FishAnimation(pixelstrip.Animation):
 
 if __name__ == "__main__":
     strip_gp15 = pixelstrip.PixelStrip(board.GP15, width=32, height=8, bpp=4, pixel_order=pixelstrip.GRB, options={pixelstrip.MATRIX_COLUMN_MAJOR, pixelstrip.MATRIX_ZIGZAG})
-    strip_gp15.animation = FishAnimation()      
+    strip_gp15.animation = LittleFishAnimation()      
     while True:
         strip_gp15.draw()
 
