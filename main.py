@@ -19,7 +19,7 @@ animation = [
 
 # List of PixelStrips
 strip = [
-    PixelStrip(board.GP15, width=32, height=8, bpp=4, pixel_order="GRB", options={.MATRIX_COLUMN_MAJOR, MATRIX_ZIGZAG}),
+    PixelStrip(board.GP15, width=32, height=8, bpp=4, pixel_order="GRB", options={MATRIX_COLUMN_MAJOR, MATRIX_ZIGZAG}),
     PixelStrip(board.GP8, 8, bpp=4, pixel_order="GRB", brightness=BRIGHTNESS),
     PixelStrip(board.GP5, 8, bpp=4, pixel_order="GRB", brightness=BRIGHTNESS)
 ]
