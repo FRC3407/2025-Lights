@@ -1,0 +1,44 @@
+import board
+import pixelstrip
+from colors import *
+
+# This is a a minimal example of an Animation.
+# All Animations must define a draw().  It's also a good
+# idea to define an __init__ function for initializing the 
+# Animation and a reset function to reset things every time
+# the Animation restarts.
+
+class MyAnimation(pixelstrip.Animation):
+    """
+    Write a description of this Animtion here.
+    """
+    def __init__(self, cycle_time=0.08):
+        pixelstrip.Animation.__init__(self)
+        self.cycle_time = cycle_time
+        self.step = 0
+        # variable setup
+
+    def reset(self, strip):
+        self.timeout = self.cycle_time
+        strip.clear()
+        strip.show()
+        # reset variables
+
+    def draw(self, strip, delta_time):
+        strip_length = 24
+        if self.is_timed_out():
+             #change pixel value
+            previous = (self.step+strip_length-1)%strip_length
+            next = (self.step+1)%strip_length
+            strip[next] = AQUA
+            strip[previous] = BLACK
+            strip.show()
+            self.step = (self.step+1)%strip_length
+            self.timeout = self.cycle_time
+
+
+if __name__ == "__main__":
+    strip_gp15 = pixelstrip.PixelStrip(board.GP15, 24, bpp=4, pixel_order=pixelstrip.GRB)
+    strip_gp15.animation = MyAnimation()
+    while True:
+        strip_gp15.draw()
