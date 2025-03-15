@@ -8,7 +8,7 @@ from colors import *
 # Animation and a reset function to reset things every time
 # the Animation restarts.
 
-class MyAnimation(pixelstrip.Animation):
+class CelebrationAnimation(pixelstrip.Animation):
     """
     Write a description of this Animtion here.
     """
@@ -55,6 +55,6 @@ class MyAnimation(pixelstrip.Animation):
 
 if __name__ == "__main__":
     strip_gp15 = pixelstrip.PixelStrip(board.GP15, width=32, height=8, bpp=4, pixel_order=pixelstrip.GRB, options={pixelstrip.MATRIX_COLUMN_MAJOR, pixelstrip.MATRIX_ZIGZAG})
-    strip_gp15.animation = MyAnimation()
+    strip_gp15.animation = CelebrationAnimation()
     while True:
         strip_gp15.draw()
