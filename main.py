@@ -2,7 +2,7 @@ import digitalio
 import board
 from time import sleep
 from i2ctarget import I2CTarget
-from pixelstrip import PixelStrip, current_time, MATRIX_COLUMN_MAJOR, MATRIX_ZIGZAG
+from pixelstrip import PixelStrip, current_time, MATRIX_COLUMN_MAJOR, MATRIX_ZIGZAG, RGB, MATRIX_TOP, MATRIX_LEFT
 from colors import *
 
 from animation_pulse import PulseAnimation
@@ -19,11 +19,10 @@ animation = [
 
 # List of PixelStrips
 strip = [
-    PixelStrip(board.GP15, width=32, height=8, bpp=4, pixel_order="GRB", options={MATRIX_COLUMN_MAJOR, MATRIX_ZIGZAG}),
-    PixelStrip(board.GP8, 8, bpp=4, pixel_order="GRB", brightness=BRIGHTNESS),
-    PixelStrip(board.GP5, 8, bpp=4, pixel_order="GRB", brightness=BRIGHTNESS)
+    PixelStrip(board.NEOPIXEL0, 120, bpp=4, pixel_order="GRB", brightness=BRIGHTNESS),
+    PixelStrip(board.NEOPIXEL1, width=32, offset=1, height=8, bpp=4, pixel_order="GRB", brightness=BRIGHTNESS, options={MATRIX_TOP, MATRIX_LEFT, MATRIX_COLUMN_MAJOR, MATRIX_ZIGZAG}),
+    PixelStrip(board.NEOPIXEL2, width=32, offset=1, height=8, bpp=4, pixel_order="GRB", brightness=BRIGHTNESS, options={MATRIX_TOP, MATRIX_LEFT, MATRIX_COLUMN_MAJOR, MATRIX_ZIGZAG})
 ]
-
 # The built-in LED will turn on for half a second after every message 
 led = digitalio.DigitalInOut(board.LED)
 led.direction = digitalio.Direction.OUTPUT
@@ -55,7 +54,7 @@ def receive_message():
 
 
 def main(i2c): 
-    "Main program loop, for reading messages and changing Animations."
+    "Main program loop, for reading messages and changing Animations." 
     global strip, led
     last_msg_time = 0.0
     while True:
@@ -95,6 +94,6 @@ def blink(n, color=BLUE, sleep_time=0.4):
 
 if __name__ == "__main__": 
     blink(2, BLUE)
-    with I2CTarget(scl=board.GP7, sda=board.GP6, addresses=[I2C_ADDRESS]) as i2c:
+    with I2CTarget(scl=board.SCL, sda=board.SDA, addresses=[I2C_ADDRESS]) as i2c:
         blink(1, GREEN)
         main(i2c) 
