@@ -6,15 +6,19 @@ from pixelstrip import PixelStrip, current_time, MATRIX_COLUMN_MAJOR, MATRIX_ZIG
 from colors import *
 
 from animation_pulse import PulseAnimation
+from animation_ladder import LadderAnimation
 
 I2C_ADDRESS = 0x41
 BRIGHTNESS = 0.5
 
 # List of Animations
 animation = [
-    PulseAnimation(),
-    PulseAnimation([(0, 136, 0, 0), (64, 64, 0, 0)]),
-    PulseAnimation([(0, 0, 136, 0), (0, 64, 64, 0)]),
+    LadderAnimation(color=RED),
+    LadderAnimation(color=BLUE),
+    LadderAnimation(color=WHITE),
+    PulseAnimation([GREEN, GRAY]),
+    PulseAnimation([RED, GRAY]),
+    PulseAnimation([PURPLE, GREEN, PURPLE, YELLOW]),
 ]
 
 # List of PixelStrips
