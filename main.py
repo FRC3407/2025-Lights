@@ -26,7 +26,7 @@ strip = [
     PixelStrip(board.NEOPIXEL0, 120, bpp=4, pixel_order="GRB", brightness=BRIGHTNESS),
     PixelStrip(board.NEOPIXEL1, width=32, offset=1, height=8, bpp=4, pixel_order="GRB", brightness=BRIGHTNESS, options={MATRIX_TOP, MATRIX_LEFT, MATRIX_COLUMN_MAJOR, MATRIX_ZIGZAG}),
     PixelStrip(board.NEOPIXEL2, width=32, offset=1, height=8, bpp=4, pixel_order="GRB", brightness=BRIGHTNESS, options={MATRIX_TOP, MATRIX_LEFT, MATRIX_COLUMN_MAJOR, MATRIX_ZIGZAG}),
-    PixelStrip(board.NEOPIXEL0, 24, bpp=4, pixel_order="GRB", brightness=BRIGHTNESS)
+    PixelStrip(board.NEOPIXEL3, 24, bpp=4, pixel_order="GRB", brightness=BRIGHTNESS)
 ]
 # The built-in LED will turn on for half a second after every message 
 led = digitalio.DigitalInOut(board.LED)
