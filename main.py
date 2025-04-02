@@ -7,6 +7,9 @@ from colors import *
 
 from animation_pulse import PulseAnimation
 from animation_ladder import LadderAnimation
+from Animation_Fish_Race import LittleFishAnimation, BigFishAnimation
+from fish_eating_fish_animation import FishAnimation
+from Animation_3407 import Team3407Animation
 
 I2C_ADDRESS = 0x41
 BRIGHTNESS = 0.5
@@ -19,6 +22,9 @@ animation = [
     PulseAnimation([GREEN, GRAY]),               # PULSE_GREEN=3
     PulseAnimation([RED, YELLOW]),               # PULSE_RED=4
     PulseAnimation([PURPLE, GREEN, YELLOW]),     # PULSE_PURPLE=5
+    FishAnimation(),                             # FISH_EATING=6
+    LittleFishAnimation(),                       # LITTLE_FISH=7
+    BigFishAnimation(),                          # BIG_FISH=8
 ]
 
 # List of PixelStrips
