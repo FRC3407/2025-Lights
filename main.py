@@ -30,7 +30,7 @@ animation = [
 # List of PixelStrips
 strip = [
     PixelStrip(board.NEOPIXEL0, 120, offset=1, bpp=4, pixel_order="GRB", brightness=BRIGHTNESS),
-    PixelStrip(board.NEOPIXEL1, width=32, offset=0, height=8, bpp=4, pixel_order="GRB", brightness=BRIGHTNESS, options={MATRIX_TOP, MATRIX_LEFT, MATRIX_COLUMN_MAJOR}),
+    PixelStrip(board.NEOPIXEL1, width=32, offset=0, height=8, bpp=4, pixel_order="GRB", brightness=BRIGHTNESS, options={MATRIX_TOP, MATRIX_LEFT, MATRIX_COLUMN_MAJOR, MATRIX_ZIGZAG}),
     PixelStrip(board.NEOPIXEL2, width=32, offset=0, height=8, bpp=4, pixel_order="GRB", brightness=BRIGHTNESS, options={MATRIX_TOP, MATRIX_LEFT, MATRIX_COLUMN_MAJOR, MATRIX_ZIGZAG}),
     PixelStrip(board.NEOPIXEL4, 24, offset=1, bpp=4, pixel_order="GRB", brightness=BRIGHTNESS)
 ]
